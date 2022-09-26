@@ -1,1 +1,15 @@
-<p>father works!</p>
+<h1>Padre</h1>
+
+<button class="btn btn-primary" (click)="onSetClient('Sergio Lozada')">
+  Cargar Cliente
+</button>
+<br />
+<br />
+<code class="pt-1"> {{ cliente | json }}</code>
+
+<hr />
+<app-father-song
+  [cliente]="cliente"
+  (deleteCliente)="cliente = undefined"
+  (updateCliente)="cliente = $event"
+></app-father-song>
