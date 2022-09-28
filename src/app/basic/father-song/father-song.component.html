@@ -5,7 +5,19 @@
 <br />
 <br />
 
-<button class="btn btn-outline-primary mx-2" (click)="onUpdate(2)">
+<button
+  id="update"
+  class="btn btn-outline-primary mx-2"
+  *ngIf="cliente"
+  (click)="onUpdate(2)"
+>
   Cambiar Id
 </button>
-<button class="btn btn-danger" (click)="onDelete()">Borrar Cliente</button>
+<button
+  id="eliminar"
+  class="btn btn-danger"
+  *ngIf="cliente"
+  (click)="onDelete()"
+>
+  Borrar Cliente
+</button>

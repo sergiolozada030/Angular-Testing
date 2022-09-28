@@ -18,7 +18,7 @@ describe('PokemonService', () => {
 
   it('Debe traer la informacion del pokemon charizard', (done) => {
     service.getPokemon(6).subscribe((pokemon) => {
-      expect(pokemon.name).toEqual('charizard!');
+      expect(pokemon.name).toEqual('charizard');
       done();
     });
   });
