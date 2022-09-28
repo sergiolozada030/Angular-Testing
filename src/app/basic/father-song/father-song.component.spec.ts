@@ -15,6 +15,7 @@ describe('FatherSongComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     compiled = fixture.nativeElement;
+    jest.clearAllMocks();
   });
 
   it('should create', () => {
@@ -50,6 +51,21 @@ describe('FatherSongComponent', () => {
     btnCambiarId?.dispatchEvent(new Event('click'));
     expect(component.updateCliente.emit).toHaveBeenCalledWith({
       id: 2,
+      name: 'James Cole',
+    });
+  });
+
+  it('debe emitir los nuevos datos con el nuevo id del cliente si hay cliente', () => {
+    jest.spyOn(component.updateCliente, 'emit');
+    component.onUpdate(5);
+    expect(component.updateCliente.emit).not.toHaveBeenCalled();
+
+    component.cliente = { id: 1, name: 'James Cole' };
+    fixture.detectChanges();
+
+    component.onUpdate(5);
+    expect(component.updateCliente.emit).toHaveBeenLastCalledWith({
+      id: 5,
       name: 'James Cole',
     });
   });
